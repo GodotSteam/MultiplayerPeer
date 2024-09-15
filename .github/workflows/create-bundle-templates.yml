@@ -1,0 +1,89 @@
+on:
+  workflow_call:
+    inputs:
+      zip_tag:
+        required: true
+        type: string
+
+
+jobs:
+  create-template-bundle:
+    runs-on: ubuntu-latest
+
+    name: Create Template Bundle
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Windows templates and Steam redistributables
+      - name: Download Windows 64-bit Release Template
+        uses: actions/download-artifact@v4
+        with:
+          name: windows64-release-template
+          path: files
+
+      - name: Download Windows 32-bit Release Template
+        uses: actions/download-artifact@v4
+        with:
+          name: windows32-release-template
+          path: files
+
+      - name: Download Windows 64-bit Debug Template
+        uses: actions/download-artifact@v4
+        with:
+          name: windows64-debug-template
+          path: files
+
+      - name: Download Windows 32-bit Debug Template
+        uses: actions/download-artifact@v4
+        with:
+          name: windows32-debug-template
+          path: files
+
+      - name: Download Windows 64-bit Steam Redistributable
+        uses: actions/download-artifact@v4
+        with:
+          name: windows64-steam
+          path: files
+
+      - name: Download Windows 32-bit Steam Redistributable
+        uses: actions/download-artifact@v4
+        with:
+          name: windows32-steam
+          path: files
+
+      # Linux templates and Steam redistributable
+      - name: Download Linux Release Template
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-release-template
+          path: files
+
+      - name: Download Linux Debug Template
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-debug-template
+          path: files
+
+      - name: Download Linux Steam Redistributable
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-steam
+          path: files
+
+      # Mac templates
+      - name: Download MacOS Template App
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-template-app
+          path: files
+
+      - name: Create Template Bundle
+        run: |
+          zip -j godotsteam-${{ inputs.zip_tag }}-multiplayer-peer-templates.zip files/*
+      
+      - name: Upload Template Bundle Artifact
+        uses: ./.github/actions/upload-artifact
+        with:
+          name: godotsteam-${{ inputs.zip_tag }}-multiplayer-peer-templates.zip
+          path: godotsteam-${{ inputs.zip_tag }}-multiplayer-peer-templates.zip
