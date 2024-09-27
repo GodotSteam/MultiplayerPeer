@@ -198,12 +198,12 @@ public:
 			}
 			else {
 				if (packet->transfer_mode & k_nSteamNetworkingSend_Reliable) {
-					WARN_PRINT(String("Send error! Reliable, will retry. Error was: ") + error_code);
+					WARN_PRINT(vformat("Send error! Reliable, will retry. EResult %s, refer to Main class in docs.", error_code));
 					break;
 					//break and try resend later
 				}
 				else {
-					WARN_PRINT(String("Send error! Unreliable, won't retry. Error was: ") + error_code);
+					WARN_PRINT(vformat("Send error! Unreliable, won't retry. EResult %s, refer to Main class in docs.", error_code));
 					delete packet;
 					pending_retry_packets.pop_front();
 					//toss the unreliable packet and move on?
