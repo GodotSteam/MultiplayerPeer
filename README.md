@@ -26,7 +26,7 @@ Pull-requests are the best way to help the project out but you can also donate t
 
 Current Build
 ---
-You can [download pre-compiled versions of this repo here](https://github.com/GodotSteam/GodotSteam-Sponsors/releases).
+You can [download pre-compiled versions of this repo here](https://github.com/GodotSteam/MultiplayerPeer/releases).
 
 **Version 4.11 Changes**
 - Changed: in-editor docs
@@ -69,7 +69,7 @@ Known Issues
 ---
 For complete instructions on how to build the GodotSteam MultiplayerPeer from scratch, [please refer to our documentation's 'How-To Multiplayer Peer' section.](https://godotsteam.com/howto/multiplayer_peer/) It will have the most up-to-date information.
 
-Alternatively, you can just [download the pre-compiled versions in our Releases section](https://github.com/GodotSteam/GodotSteam-Sponsors/releases) and skip compiling it yourself!
+Alternatively, you can just [download the pre-compiled versions in our Releases section](https://github.com/GodotSteam/MultiplayerPeer/releases) and skip compiling it yourself!
 
 [To start, check out our tutorial on initializing Steam.](https://godotsteam.com/tutorials/initializing/)  There are additional tutorials with more in the works.  You can also [check out additional Godot and Steam related videos, text, additional tools, plug-ins, etc. here.](https://godotsteam.com/tutorials/external/)
 
